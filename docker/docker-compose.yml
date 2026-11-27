@@ -1,0 +1,14 @@
+services:
+  capstone:
+    build: .
+    image: ds599-capstone
+    container_name: ds599-capstone
+    # Only your own PC can open it (http://localhost:8888)
+    ports:
+      - "127.0.0.1:8888:8888"
+    # The "work" folder next to this file is shared with the container.
+    # Everything you save in Jupyter is stored there, on your PC,
+    # so it stays safe after you stop or delete the container.
+    volumes:
+      - ./work:/work
+    restart: unless-stopped
